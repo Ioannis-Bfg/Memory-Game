@@ -68,7 +68,10 @@
 }
 
 .grid-item:hover .pokemon_sprite {
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px hsl(0, 0%, 19%, 0.3));
   animation: happy 2s infinite;
+  transition: filter 0.3s ease;
 }
 
 .pokemon_sprite {

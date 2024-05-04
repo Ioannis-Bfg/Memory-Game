@@ -5,6 +5,7 @@ import "./styles/container.css";
 function Container() {
   const [pokemon, setPokemon] = useState([]);
   const [displayPokemon, setDisplayPokemon] = useState([]);
+  const audio = new Audio("../public/sounds/blink.mp3");
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -22,14 +23,15 @@ function Container() {
         })
       );
       setPokemon(pokemonData);
-      setDisplayPokemon(pokemonData.slice(0, 8)); // Display the first 8 Pokémon
+      setDisplayPokemon(pokemonData.slice(0, 10)); // Display the first 8 Pokémon
     };
 
     fetchPokemon();
   }, []);
 
   const handleShowRandom = () => {
-    const randomPokemon = pokemon.sort(() => 0.5 - Math.random()).slice(0, 8); // Get a random assortment of 8 Pokémon
+    audio.play();
+    const randomPokemon = pokemon.sort(() => 0.5 - Math.random()).slice(0, 10); // Get a random assortment of 8 Pokémon
     setDisplayPokemon(randomPokemon);
   };
 
